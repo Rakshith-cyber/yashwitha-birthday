@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosmic Birthday</title>
+
+<style>
+body{margin:0;overflow:hidden;background:black;font-family:sans-serif}
+
+/* Rainbow Intro */
+#intro{
+position:fixed;
+width:100%;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(45deg,red,orange,yellow,green,blue,indigo,violet);
+background-size:400% 400%;
+animation:rainbow 8s infinite linear;
+z-index:10;
+transition:opacity 2s;
+}
+
+@keyframes rainbow{
+0%{background-position:0%}
+100%{background-position:400%}
+}
+
+button{
+padding:15px 40px;
+font-size:20px;
+border:none;
+border-radius:30px;
+cursor:pointer;
+}
+
+/* Animated Blessings */
+#blessing{
+position:fixed;
+top:25%;
+width:100%;
+text-align:center;
+font-size:42px;
+color:white;
+opacity:0;
+text-shadow:0 0 30px hotpink, 0 0 60px deeppink;
+transition:0.5s;
+z-index:5;
+font-weight:bold;
+letter-spacing:2px;
+}
+#blessing.show{opacity:1}
+
+/* Final Wish */
+#wish{
+position:fixed;
+bottom:40px;
+width:100%;
+text-align:center;
+font-size:32px;
+color:white;
+opacity:0;
+text-shadow:0 0 30px pink;
+transition:3s;
+z-index:5;
+}
+
+#wish.show{opacity:1}
+
+/* Photo Zoom */
+#modal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:20;
+}
+
+#modal img{
+max-width:90%;
+max-height:90%;
+}
+</style>
+</head>
+
+<body>
+
+<div id="intro">
+<h1>Happy Birthday Yashwitha Rai ❤️</h1>
+<button onclick="start()">Enter Universe</button>
+</div>
+
+<div id="blessing">May your life shine like the stars ✨</div>
+
+<div id="wish">
+Wish you many many happy returns of the day Yashwitha Rai 💖<br>
+Best wishes from Rakshith Rai ✨
+</div>
+
+<div id="modal" onclick="closeModal()">
+<img id="modalImg">
+</div>
+
+<script>
+function closeModal(){
+document.getElementById("modal").style.display="none";
+modalOpen = false;
+}
+</script>
+
+<audio id="music" src="music.mp3" loop></audio>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/shaders.js"></script>
+<script src="js/fireworks.js"></script>
+<script src="js/hearts.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
